@@ -1,0 +1,42 @@
+{
+    "prompt": {
+        "1": {
+            "class_type": "LoadImage",
+            "inputs": {
+                "image": "input_image.png"
+            }
+        },
+        "2": {
+            "class_type": "RunwayImg2ImgNode",
+            "inputs": {
+                "image": ["1", 0],
+                "prompt": "a beautiful landscape",
+                "timeout": 120
+            }
+        },
+        "3": {
+            "class_type": "SaveImage",
+            "inputs": {
+                "images": ["2", 0],
+                "filename_prefix": "DreamLayer_Runway_img2img"
+            }
+        }
+    },
+    "meta": {
+        "description": "Runway Gen-4 Img2Img Core Generation Workflow",
+        "model_options": {
+            "runway": "RunwayGen4"
+        },
+        "core_settings": {
+            "image": "Reference image for Runway Gen-4 transformation",
+            "prompt": "Text prompt describing the desired transformation",
+            "timeout": "Request timeout in seconds (30-300, default 120)"
+        },
+        "timeout_range": {
+            "min": 30,
+            "max": 300,
+            "default": 120,
+            "step": 10
+        }
+    }
+}
